@@ -33,7 +33,7 @@
 
         // si hay un error, lanzarlo
         abrirConexion.onerror = function() {
-            console.log('Hubo un error');
+            console.log('ERROR: Could not connect to the database');
         };
      
         // si todo esta bien, asignar a database el resultado
@@ -76,7 +76,7 @@
         e.preventDefault();
 
         if( nombreInput.value === '' || emailInput.value === '' || empresaInput.value === '' || telefonoInput.value === '' ) {
-            imprimirAlerta('Todos los campos son obligatorios', 'error');
+            imprimirAlerta('All fields are required', 'error');
             return;
         }
 
@@ -98,7 +98,7 @@
         objectStore.put(clienteActualizado);
 
         transaction.oncomplete = () => {
-            imprimirAlerta('Editado Correctamente');
+            imprimirAlerta('Edited correctly');
 
             setTimeout(() => {
                 window.location.href = 'index.html';
@@ -107,7 +107,7 @@
 
         transaction.onerror = (error) => {
             console.log(error);
-            console.log('Hubo un errorr.');
+            console.log('ERROR: Could not be edited');
         };
     }
 

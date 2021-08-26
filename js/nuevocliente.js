@@ -16,7 +16,7 @@
 
         // si hay un error, lanzarlo
         abrirConexion.onerror = function() {
-            console.log('Hubo un error');
+            console.log('ERROR: Could not connect to the database');
         };
     
         // si todo esta bien, asignar a database el resultado
@@ -63,10 +63,10 @@
         objectStore.add(cliente);
 
         transaction.oncomplete = () => {
-            console.log('Cliente Agregado');
+            console.log('The client has been added');
 
             // Mostrar mensaje de que todo esta bien...
-            imprimirAlerta('Se agregó correctamente');
+            imprimirAlerta('Client added correctly');
 
             setTimeout(() => {
                 window.location.href = 'index.html';
@@ -75,7 +75,7 @@
 
         transaction.onerror = () => {
             console.log('Hubo un error!');
-            imprimirAlerta('Hubo un Error', 'error');
+            imprimirAlerta('Error adding client', 'error');
         };
     }
 

@@ -1,6 +1,7 @@
 (function() {
     let DB;
 
+    const listadoClientes = document.querySelector('#listado-clientes');
     document.addEventListener('DOMContentLoaded', () => {
         crearDB();
     
@@ -13,7 +14,7 @@
     
     function eliminarRegistro(e) {
         if(e.target.classList.contains('eliminar')) {
-            console.log('diste click en eliminar')
+        
             const idEliminar = Number(e.target.dataset.cliente);
     
             const confirmar = confirm('Deseas eliminar este cliente?');
@@ -102,7 +103,7 @@
                  if(cursor) {
                     const { nombre, empresa, email, telefono, id } = cursor.value;
                     
-                    const listadoClientes = document.querySelector('#listado-clientes');
+                    
                     listadoClientes.innerHTML += `
 
                         <tr>

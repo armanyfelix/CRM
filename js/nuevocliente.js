@@ -70,7 +70,7 @@
 
             setTimeout(() => {
                 window.location.href = 'index.html';
-            }, 3000);
+            }, 1500);
         };
 
         transaction.onerror = () => {

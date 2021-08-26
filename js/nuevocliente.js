@@ -26,10 +26,8 @@
         };
     }
 
-
     function validarCliente(e) {
         e.preventDefault();
-
 
         const nombre = document.querySelector('#nombre').value;
         const email = document.querySelector('#email').value;
@@ -44,7 +42,6 @@
 
         // añadir a la BD...
         // crear un nuevo objeto con toda la info
-
         const cliente = {
             nombre, 
             email,
@@ -54,21 +51,15 @@
 
         // Generar un ID único
         cliente.id = Date.now();
-
-
-
         crearNuevoCliente(cliente);
     }
 
-    function crearNuevoCliente(cliente) {
-
-        
+    function crearNuevoCliente(cliente) {  
 
         // NUEVO: 
         const transaction = DB.transaction(['crm'], 'readwrite');
         const objectStore = transaction.objectStore('crm');
-        
-        // console.log(objectStore);
+        console.log(objectStore);
         objectStore.add(cliente);
 
         transaction.oncomplete = () => {
@@ -111,5 +102,4 @@
              divMensaje.remove();
          }, 3000);
     }
-
 })();
